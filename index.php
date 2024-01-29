@@ -1,3 +1,12 @@
+<?php
+
+// Wajib
+require 'functions.php';
+
+$siswa = query("SELECT * FROM siswa");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,23 +22,27 @@
         <tr>
             <th>No.</th>
             <th>Gambar</th>
-            <th>NRP</th>
+            <th>NIS</th>
             <th>Nama</th>
-            <th>Email</th>
+            <th>Kelas</th>
             <th>Jurusan</th>
+            <th>Email</th>
             <th>Aksi</th>
         </tr>
 
-        <tr>
-            <td></td>
-            <td><img src="" width="60"></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-                <a href="">ubah</a> | <a href="">hapus</a>
-        </tr>
+        <?php foreach ($siswa as $siswa) : ?>
+            <tr>
+                <td><?= $siswa['id']; ?></td>
+                <td><img src="image/<?= $siswa['gambar']; ?>" height="60"></td>
+                <td><?= $siswa['nis']; ?></td>
+                <td><?= $siswa['nama']; ?></td>
+                <td><?= $siswa['kelas']; ?></td>
+                <td><?= $siswa['jurusan']; ?></td>
+                <td><?= $siswa['email']; ?></td>
+                <td>
+                    <a href="">ubah</a> | <a href="">hapus</a>
+            </tr>
+        <?php endforeach; ?>
     </table>
 
 </body>
