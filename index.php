@@ -1,7 +1,14 @@
 <?php
 
 // Wajib
-require 'functions.php';
+require 'functions/functions.php';
+
+$nama = $_POST['nama'];
+$nis = $_POST['nis'];
+$kelas = $_POST['kelas'];
+$email = $_POST['email'];
+$jurusan = $_POST['jurusan'];
+$gambar = $_POST['gambar'];
 
 $siswa = query("SELECT * FROM siswa");
 
@@ -22,28 +29,30 @@ $siswa = query("SELECT * FROM siswa");
         <tr>
             <th>No.</th>
             <th>Gambar</th>
-            <th>NIS</th>
             <th>Nama</th>
-            <th>Kelas</th>
-            <th>Jurusan</th>
-            <th>Email</th>
-            <th>Aksi</th>
         </tr>
 
         <?php foreach ($siswa as $siswa) : ?>
             <tr>
                 <td><?= $siswa['id']; ?></td>
                 <td><img src="image/<?= $siswa['gambar']; ?>" height="60"></td>
-                <td><?= $siswa['nis']; ?></td>
-                <td><?= $siswa['nama']; ?></td>
-                <td><?= $siswa['kelas']; ?></td>
-                <td><?= $siswa['jurusan']; ?></td>
-                <td><?= $siswa['email']; ?></td>
-                <td>
-                    <a href="">ubah</a> | <a href="">hapus</a>
+                <td><a href="detail/index.php?id=<?= $siswa['id']; ?>"><?= $siswa['nama']; ?></a></td>
             </tr>
         <?php endforeach; ?>
     </table>
+
+    <br>
+
+    <h3><?= $nama; ?></h3>
+    <h3><?= $nis; ?></h3>
+    <h3><?= $kelas; ?></h3>
+    <h3><?= $email; ?></h3>
+    <h3><?= $jurusan; ?></h3>
+    <h3><?= $gambar; ?></h3>
+
+    <br>
+
+    <button type="button" onclick="location.href = 'http://localhost/belajar_php/add/';">Tambah Data Baru</button>
 
 </body>
 
