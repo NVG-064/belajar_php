@@ -9,7 +9,9 @@
 
 <body>
 
-    <form action="http://localhost/belajar_php/" method="post">
+    <h1>Tambah Data Siswa</h1>
+
+    <form action="http://localhost/belajar_php/" method="get">
         Nama: <input type="text" name="nama">
         <br><br>
         NIS: <input type="text" name="nis">
